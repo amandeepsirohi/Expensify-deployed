@@ -21,9 +21,13 @@ import { connectDB } from "./db/connectDB.js";
 import { configurePassport } from "./passport/passport.config.js";
 import path from "path";
 
+import job from "./cron.js";
+
 dotenv.config();
 
 configurePassport();
+
+job.start();
 
 const app = express();
 
